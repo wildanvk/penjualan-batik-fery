@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 17, 2023 at 09:49 AM
+-- Generation Time: Nov 21, 2023 at 01:04 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -39,7 +39,8 @@ CREATE TABLE `kategori` (
 
 INSERT INTO `kategori` (`id_kategori`, `nama_kategori`, `status`) VALUES
 (2, 'Daster', 'Active'),
-(3, 'Long Dress', 'Active');
+(3, 'Long Dress', 'Active'),
+(7, 'Kemeja', 'Active');
 
 -- --------------------------------------------------------
 
@@ -62,13 +63,9 @@ CREATE TABLE `produk` (
 --
 
 INSERT INTO `produk` (`id_produk`, `id_kategori`, `nama_produk`, `harga_produk`, `status`, `gambar_produk`, `deskripsi`) VALUES
-(4, 2, 'Intel Core i5-13600K', 4500000, 'Active', '1686580056_398d6555752edd9199aa.jpg', 'Sebuah Prosessor dari Intel                                                                                '),
-(5, 2, 'AMD Ryzen 5 5600X', 2200000, 'Active', '1686580098_6384084137fcf96a1d70.jpg', 'Sebuah Prosessor dari AMD'),
-(6, 3, 'Gigabyte B550M Aorus Pro-P', 2300000, 'Active', '1686580322_1c6205d834307189c420.jpg', 'Sebuah Motherboard AMD dari Gigabyte'),
-(7, 3, 'Asus TUF Gaming B660M-PLUS Wifi D4', 2700000, 'Active', '1686580339_b756c2133d79ac27f0cb.jpg', 'Sebuah Motherboard Intel dari Asus'),
-(8, 2, 'MSI GeForce RTX 3060 Ti Gaming X LHR', 7500000, 'Active', '1686580497_fc0572091ea25be14cdb.jpg', 'Sebuah Graphic Cards Nvidia dari MSI                                        '),
-(9, 2, 'Asus Radeon RX 6600 XT DUAL OC', 4000000, 'Active', '1686580573_06de4d36092d91e89612.jpg', 'Sebuah Graphic Card AMD dari Asus                                        '),
-(13, 2, 'asdasd', 500000, 'Inactive', '1699971814_3323919e0a0559dc0169.jpeg', 'asdasd                                                                                                                        ');
+(14, 7, 'Kemeja 1', 500000, 'Active', '1700566673_0acf9935a0e6fd130d74.jpg', 'Kemeja 1'),
+(15, 7, 'Kemeja 2', 500000, 'Active', '1700566688_4a278d02c7699fb79c5b.jpg', 'Kemeja 2'),
+(17, 2, 'Daster 2', 500000, 'Active', '1700566713_807a87a8df030b0d1076.jpg', 'Daster 2');
 
 -- --------------------------------------------------------
 
@@ -120,13 +117,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `kategori`
 --
 ALTER TABLE `kategori`
-  MODIFY `id_kategori` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_kategori` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `produk`
 --
 ALTER TABLE `produk`
-  MODIFY `id_produk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id_produk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `users`

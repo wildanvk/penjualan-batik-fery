@@ -6,12 +6,12 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0 text-dark">Show Product</h1>
+                    <h1 class="m-0 text-dark">Detail Produk</h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="#">Home</a></li>
-                        <li class="breadcrumb-item active">Show Product</li>
+                        <li class="breadcrumb-item active">Detail Produk</li>
                     </ol>
                 </div>
             </div>
@@ -26,28 +26,26 @@
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-md-4">
-                                    <img src="<?= base_url('uploads/' . $product['product_image']) ?>" alt="" class="image-fluid">
+                                    <img src="<?= base_url('uploads/' . $produk['gambar_produk']) ?>" alt="" class="" width="500">
                                 </div>
                                 <div class="col-md-8">
                                     <dl class="dl-horizontal">
-                                        <dt>SKU / Kode Product</dt>
-                                        <dd><?= $product['product_sku'] ?></dd>
-                                        <dt>Kategori Product</dt>
-                                        <dd><?= $product['category_name'] ?></dd>
-                                        <dt>Nama Product</dt>
-                                        <dd><?= $product['product_name'] ?></dd>
-                                        <dt>Harga Product</dt>
-                                        <dd><?= 'Rp' . number_format($product['product_price'])  ?></dd>
-                                        <dt>Status Product</dt>
-                                        <dd><?= $product['product_status'] ?></dd>
-                                        <dt>Deskripsi Product</dt>
-                                        <dd><?= $product['product_description'] ?></dd>
+                                        <dt>Kategori produk</dt>
+                                        <dd><?= $produk['nama_kategori'] ?></dd>
+                                        <dt>Nama produk</dt>
+                                        <dd><?= $produk['nama_produk'] ?></dd>
+                                        <dt>Harga produk</dt>
+                                        <dd><?= format_rupiah($produk['harga_produk'])  ?></dd>
+                                        <dt>Status produk</dt>
+                                        <dd><?= $produk['status'] ?></dd>
+                                        <dt>Deskripsi produk</dt>
+                                        <dd><?= $produk['deskripsi'] ?></dd>
                                     </dl>
                                 </div>
                             </div>
                         </div>
                         <div class="card-footer">
-                            <a href="<?= base_url('product') ?>" class="btn btn-outline-info">Back</a>
+                            <a href="<?= base_url('produk') ?>" class="btn btn-outline-info">Back</a>
                         </div>
                     </div>
                 </div>

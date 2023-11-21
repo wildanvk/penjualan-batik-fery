@@ -55,16 +55,23 @@
                         <!-- /.col -->
                         <div class="col">
                             <button type="submit" class="btn btn-primary btn-block">Sign In</button>
+
                         </div>
                         <!-- /.col -->
                     </div>
                 </form>
                 <!-- /.social-auth-links -->
+
+
             </div>
             <!-- /.login-card-body -->
+
         </div>
     </div>
     <!-- /.login-box -->
+    <div class="mt-3">
+        <a href="/shop" class="text-center">Tampilan Toko</a>
+    </div>
 
     <!-- jQuery -->
     <script src="<?php echo base_url('themes'); ?>/plugins/jquery/jquery.min.js"></script>
