@@ -41,6 +41,37 @@ class Validation extends BaseConfig
     // --------------------------------------------------------------------
     // Rules
     // --------------------------------------------------------------------
+
+    public $user = [
+        'nama' => 'required',
+        'email' => 'required|valid_email|is_unique[user.email]',
+        'jenis_kelamin' => 'required',
+        'telepon' => 'required|numeric',
+        'password' => 'required|min_length[8]',
+
+    ];
+
+    public $user_errors = [
+        'nama' => [
+            'required' => 'Nama harus diisi!',
+        ],
+        'email' => [
+            'required' => 'Email harus diisi!',
+            'valid_email' => 'Email tidak valid!',
+            'is_unique' => 'Email sudah terdaftar!'
+        ],
+        'jenis_kelamin' => [
+            'required' => 'Jenis kelamin harus diisi!',
+        ],
+        'telepon' => [
+            'required' => 'No. telepon harus diisi!',
+        ],
+        'password' => [
+            'required' => 'Password harus diisi!',
+            'min_length' => 'Password minimal 8 karakter!'
+        ],
+    ];
+
     public $kategori = [
         'nama_kategori'     => 'required',
         'status'     => 'required'

@@ -18,47 +18,41 @@
         <nav class="mt-2">
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                 <li class="nav-item">
-                    <a href="/dashboard" class="nav-link">
+                    <a href="/admin/dashboard" class="nav-link">
                         <i class="nav-icon fas fa-th"></i>
                         <p>Dashboard</p>
                     </a>
                 </li>
                 <li class="nav-header">Data Master</li>
                 <li class="nav-item">
-                    <a href="/kategori" class="nav-link">
+                    <a href="/admin/kategori" class="nav-link">
                         <i class="nav-icon fas fa-list"></i>
                         <p>Kategori</p>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="/produk" class="nav-link">
+                    <a href="/admin/produk" class="nav-link">
                         <i class="nav-icon fas fa-box"></i>
                         <p>Produk</p>
                     </a>
                 </li>
                 <li class="nav-header">Penjualan</li>
-                <!-- <li class="nav-item">
-                    <a href="<?php echo base_url(''); ?>" class="nav-link">
-                        <i class="nav-icon fas fa-truck"></i>
-                        <p>Pesanan</p>
-                    </a>
-                </li> -->
                 <li class="nav-item">
-                    <a href="/transaksi" class="nav-link">
+                    <a href="/admin/transaksi" class="nav-link">
                         <i class="nav-icon fas fa-book"></i>
                         <p>Transaksi</p>
                     </a>
                 </li>
-                <!-- <li class="nav-header">Laporan</li>
+                <li class="nav-header">Laporan</li>
                 <li class="nav-item">
-                    <a href="/transaksi" class="nav-link">
+                    <a href="/admin/transaksi" class="nav-link">
                         <i class="nav-icon fas fa-book"></i>
                         <p>Transaksi</p>
                     </a>
-                </li> -->
+                </li>
                 <li class="nav-header">Akun</li>
                 <li class="nav-item">
-                    <a href="/auth/logout" class="nav-link">
+                    <a href="/admin/auth/logout" class="nav-link">
                         <i class="nav-icon far fa-circle text-danger"></i>
                         <p class="text">Logout</p>
                     </a>

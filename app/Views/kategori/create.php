@@ -21,7 +21,7 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-12">
-                    <form action="<?php echo base_url('kategori/store'); ?>" method="post">
+                    <form action="<?php echo base_url('/admin/kategori/insert'); ?>" method="post">
                         <div class="card">
                             <div class="card-body">
                                 <?php $errors = session()->getFlashdata('errors');
@@ -50,7 +50,7 @@
                                 </div>
                             </div>
                             <div class="card-footer">
-                                <a href="<?php echo base_url('kategori'); ?>" class="btn btn-outline-info">Back</a>
+                                <a href="/admin/kategori" class="btn btn-outline-info">Back</a>
                                 <button type="submit" class="btn btn-primary float-right">Simpan</button>
                             </div>
                         </div>

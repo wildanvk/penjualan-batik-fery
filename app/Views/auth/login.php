@@ -34,7 +34,7 @@
                         <?= session()->getFlashdata('pesan'); ?>
                     </div>
                 <?php endif; ?>
-                <form action="/auth/auth" method="post">
+                <form action="/admin/auth/verification" method="post">
                     <div class="input-group mb-3">
                         <input type="text" class="form-control" placeholder="Username" name="username">
                         <div class="input-group-append">
@@ -70,7 +70,7 @@
     </div>
     <!-- /.login-box -->
     <div class="mt-3">
-        <a href="/shop" class="text-center">Tampilan Toko</a>
+        <a href="/" class="text-center">Tampilan Toko</a>
     </div>
 
     <!-- jQuery -->

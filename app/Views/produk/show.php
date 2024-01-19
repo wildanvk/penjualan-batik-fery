@@ -26,7 +26,8 @@
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-md-4">
-                                    <img src="<?= base_url('uploads/' . $produk['gambar_produk']) ?>" alt="" class="" width="500">
+                                    <img src="<?= base_url('uploads/' . $produk['gambar_produk']) ?>" alt="" class=""
+                                        width="500">
                                 </div>
                                 <div class="col-md-8">
                                     <dl class="dl-horizontal">
@@ -45,7 +46,7 @@
                             </div>
                         </div>
                         <div class="card-footer">
-                            <a href="<?= base_url('produk') ?>" class="btn btn-outline-info">Back</a>
+                            <a href="/admin/produk" class="btn btn-outline-info">Back</a>
                         </div>
                     </div>
                 </div>

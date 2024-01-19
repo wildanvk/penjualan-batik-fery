@@ -3,7 +3,7 @@
 namespace App\Controllers;
 
 use App\Controllers\BaseController;
-use App\Models\UserModel;
+use App\Models\AdminModel;
 
 class Auth extends BaseController
 {
@@ -17,10 +17,10 @@ class Auth extends BaseController
         }
     }
 
-    public function auth()
+    public function verification()
     {
         $session = session();
-        $model  =  new UserModel();
+        $model  =  new AdminModel();
         $username = $this->request->getVar('username');
         $password = $this->request->getVar('password');
         $data = $model->where('username', $username)->first();
@@ -28,19 +28,20 @@ class Auth extends BaseController
             $pass = $data['password'];
             if ($pass == $password) {
                 $session_data = [
-                    'user_id'    => $data['user_id'],
+                    'role' => 'admin',
+                    'id_admin'    => $data['id_admin'],
                     'username'   => $data['username'],
-                    'logged_in'  => TRUE
+                    'admin_logged_in'  => TRUE
                 ];
                 $session->set($session_data);
-                return redirect()->to('/dashboard/index');
+                return redirect()->to('/admin/dashboard');
             } else {
                 $session->setFlashdata('pesan', 'Password yang anda masukkan salah!');
-                return redirect()->to('/auth');
+                return redirect()->to('/admin/auth');
             }
         } else {
             $session->setFlashdata('pesan', 'Username yang anda masukkan tidak ada!');
-            return redirect()->to('/auth');
+            return redirect()->to('/admin/auth');
         }
     }
 
@@ -49,6 +50,6 @@ class Auth extends BaseController
         $session = session();
         $session->destroy();
         $session->setFlashdata('pesan', 'Berhasil logout');
-        return redirect()->to('/auth');
+        return redirect()->to('/admin/auth');
     }
 }

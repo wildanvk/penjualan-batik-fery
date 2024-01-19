@@ -29,7 +29,7 @@ class Produk extends BaseController
     {
         $kategori = $this->kategori_model->where('status', 'Active')->findAll();
         $data['kategori'] = ['' => 'Pilih kategori'] + array_column($kategori, 'nama_kategori', 'id_kategori');
-        return view('produk/create', $data);
+        return view('/produk/create', $data);
     }
 
     public function store()
@@ -53,7 +53,7 @@ class Produk extends BaseController
         if ($validation->run($data, 'produk') == FALSE) {
             session()->setFlashdata('inputs', $this->request->getPost());
             session()->setFlashdata('errors', $validation->getErrors());
-            return redirect()->to(base_url('produk/create'));
+            return redirect()->to(base_url('/admin/produk/tambah'));
         } else {
             //Upload
             $image->move(ROOTPATH . 'public/uploads', $name);
@@ -62,7 +62,7 @@ class Produk extends BaseController
             $simpan = $this->produk_model->insertProduk($data);
             if ($simpan) {
                 session()->setFlashdata('success', 'Produk berhasil ditambahkan');
-                return redirect()->to('/produk');
+                return redirect()->to('/admin/produk');
             }
         }
     }
@@ -110,7 +110,7 @@ class Produk extends BaseController
         if ($validation->run($data, 'produk_edit') == FALSE) {
             session()->setFlashdata('inputs', $this->request->getPost());
             session()->setFlashdata('errors', $validation->getErrors());
-            return redirect()->to(base_url('produk/edit/' . $id));
+            return redirect()->to(base_url('/admin/produk/edit/' . $id));
         } else {
             //update
             if (!$image->getError() == 4) {
@@ -120,7 +120,7 @@ class Produk extends BaseController
             $ubah = $this->produk_model->updateProduk($data, $id);
             if ($ubah) {
                 session()->setFlashdata('success', 'Produk berhasil diupdate');
-                return redirect()->to('/produk');
+                return redirect()->to('/admin/produk');
             }
         }
     }
@@ -130,7 +130,7 @@ class Produk extends BaseController
         $hapus = $this->produk_model->deleteProduk($id);
         if ($hapus) {
             session()->setFlashdata('success', 'Produk berhasil dihapus');
-            return redirect()->to('/produk');
+            return redirect()->to('/admin/produk');
         }
     }
 }

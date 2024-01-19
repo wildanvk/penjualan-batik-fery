@@ -19,7 +19,7 @@ $routes->set404Override();
 // where controller filters or CSRF protection are bypassed.
 // If you don't want to define all routes, please use the Auto Routing (Improved).
 // Set `$autoRoutesImproved` to true in `app/Config/Feature.php` and set the following to true.
-$routes->setAutoRoute(true);
+$routes->setAutoRoute(false);
 
 /*
  * --------------------------------------------------------------------
@@ -29,7 +29,58 @@ $routes->setAutoRoute(true);
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
-$routes->get('/', 'Auth::index');
+$routes->get('/', 'Shop::index');
+
+
+$routes->group('shop', function ($routes) {
+    $routes->get('/', 'Shop::index');
+    $routes->get('detail/(:segment)', 'Shop::detail/$1');
+    $routes->get('cart', 'Shop::cart');
+    $routes->get('tambah_keranjang/(:segment)', 'Shop::addToCart/$1');
+    $routes->post('update_keranjang', 'Shop::updateCart/$1');
+    $routes->get('hapus_keranjang/(:segment)', 'Shop::deleteCart/$1');
+    $routes->get('checkout', 'Shop::checkout');
+});
+
+$routes->group('user', function ($routes) {
+    $routes->get('/', 'User\Auth::index');
+    $routes->get('login', 'User\Auth::index');
+    $routes->post('verification', 'User\Auth::verification');
+    $routes->get('register', 'User\Auth::register');
+    $routes->post('create', 'User\Auth::create');
+    $routes->get('logout', 'User\Auth::logout');
+});
+
+$routes->group('admin', function ($routes) {
+    $routes->get('/', 'Auth::index');
+    $routes->get('dashboard', 'Dashboard::index');
+
+    // Auth
+    $routes->group('auth', function ($routes) {
+        $routes->get('/', 'Auth::index');
+        $routes->get('login', 'Auth::index');
+        $routes->post('verification', 'Auth::verification');
+        $routes->get('logout', 'Auth::logout');
+    });
+
+    // Kategori
+    $routes->get('kategori', 'Kategori::index');
+    $routes->get('kategori/tambah', 'Kategori::create');
+    $routes->post('kategori/insert', 'Kategori::store');
+    $routes->get('kategori/edit/(:segment)', 'Kategori::edit/$1');
+    $routes->post('kategori/update', 'Kategori::update/$1');
+    $routes->get('kategori/delete/(:segment)', 'Kategori::delete/$1');
+
+    // Produk
+    $routes->get('produk', 'Produk::index');
+    $routes->get('produk/show/(:segment)', 'Produk::show/$1');
+    $routes->get('produk/tambah', 'Produk::create');
+    $routes->post('produk/insert', 'Produk::store');
+    $routes->get('produk/edit/(:segment)', 'Produk::edit/$1');
+    $routes->post('produk/update', 'Produk::update/$1');
+    $routes->get('produk/delete/(:segment)', 'Produk::delete/$1');
+});
+
 
 /*
  * --------------------------------------------------------------------

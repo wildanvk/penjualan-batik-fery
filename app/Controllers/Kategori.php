@@ -30,13 +30,13 @@ class Kategori extends BaseController
         if ($validation->run($data, 'kategori') == FALSE) {
             session()->setFlashdata('inputs', $this->request->getPost());
             session()->setFlashdata('errors', $validation->getErrors());
-            return redirect()->to(base_url('kategori/create'));
+            return redirect()->to(base_url('/admin/kategori/create'));
         } else {
             $model = new KategoriModel();
             $simpan = $model->insertKategori($data);
             if ($simpan) {
                 session()->setFlashdata('success', 'Kategori berhasil ditambahkan');
-                return redirect()->to(base_url('kategori'));
+                return redirect()->to(base_url('/admin/kategori'));
             }
         }
     }
@@ -61,13 +61,13 @@ class Kategori extends BaseController
         if ($validation->run($data, 'kategori') == FALSE) {
             session()->setFlashdata('inputs', $this->request->getPost());
             session()->setFlashdata('errors', $validation->getErrors());
-            return redirect()->to(base_url('kategori/edit/' . $id));
+            return redirect()->to(base_url('/admin/kategori/edit/' . $id));
         } else {
             $model = new KategoriModel();
             $ubah = $model->updateKategori($data, $id);
             if ($ubah) {
                 session()->setFlashdata('info', 'Kategori berhasil diupdate');
-                return redirect()->to(base_url('kategori'));
+                return redirect()->to(base_url('/admin/kategori'));
             }
         }
     }
@@ -78,7 +78,7 @@ class Kategori extends BaseController
         $hapus = $model->deleteKategori($id);
         if ($hapus) {
             session()->setFlashdata('warning', 'Katgori berhasil dihapus');
-            return redirect()->to(base_url('kategori'));
+            return redirect()->to(base_url('/admin/kategori'));
         }
     }
 }

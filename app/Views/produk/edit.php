@@ -39,7 +39,7 @@ echo view('_partials/header'); ?>
                         </div>
                     <?php } ?>
                     <div class="card">
-                        <form action="/produk/update" method="post" enctype="multipart/form-data">
+                        <form action="/admin/produk/update" method="post" enctype="multipart/form-data">
                             <div class="card-header">Form Edit Produk</div>
                             <div class="card-body">
                                 <?php echo form_hidden('id_produk', $produk['id_produk']) ?>
@@ -95,7 +95,7 @@ echo view('_partials/header'); ?>
                                 </div>
                             </div>
                             <div class="card-footer">
-                                <a href="/produk" class="btn btn-outline-info">Back</a>
+                                <a href="/admin/produk" class="btn btn-outline-info">Back</a>
                                 <button type="submit" class="btn btn-primary float-right">Update</button>
                             </div>
                         </form>

@@ -14,38 +14,43 @@
     <section class="py-5">
         <div class="container px-4 px-lg-5 mt-5">
             <?php if ($produk) { ?>
-                <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-3 justify-content-center">
-                    <?php foreach ($produk as $key => $row) : ?>
-                        <div class="col mb-5">
-                            <div class="card p-2 h-100">
-                                <!-- Product image-->
-                                <img class="card-img-top" src="<?= base_url('uploads/') . $row['gambar_produk'] ?>" alt="<?= $row['nama_produk'] ?>" />
-                                <!-- Product details-->
-                                <div class="card-body p-4 text-center">
-                                    <div class="text-center">
-                                        <!-- Product name-->
-                                        <h5 class="fw-bolder"><?= $row['nama_produk'] ?></h5>
-                                        <!-- Product price-->
-                                        <?= format_rupiah($row['harga_produk']) ?>
-                                    </div>
-                                </div>
-                                <!-- Product actions-->
-                                <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                    <div class="text-center">
-                                        <a class="btn btn-primary mt-auto" href="#">
-                                            <i class="bi bi-cart"></i>
-                                            Masukkan keranjang</a>
-                                        <a class="btn btn-outline-info mt-auto" href="#">Detail</a>
-                                    </div>
-                                </div>
+            <div class="row gx-4 gx-lg-5 row-cols-1 row-cols-md-3 row-cols-xl-3 justify-content-center">
+                <?php foreach ($produk as $key => $row) : ?>
+                <div class="col mb-5">
+                    <div class="card p-2 h-100">
+                        <!-- Product image-->
+                        <a href="/shop/detail/<?= $row['id_produk'] ?>">
+                            <img class="card-img-top" src="<?= base_url('uploads/') . $row['gambar_produk'] ?>"
+                                alt="<?= $row['nama_produk'] ?>" />
+                        </a>
+                        <!-- Product details-->
+                        <div class="card-body p-4 text-center">
+                            <div class="text-center">
+                                <!-- Product name-->
+                                <h5 class="fw-bolder"><?= $row['nama_produk'] ?></h5>
+                                <!-- Product price-->
+                                <?= format_rupiah($row['harga_produk']) ?>
                             </div>
                         </div>
-                    <?php endforeach; ?>
+                        <!-- Product actions-->
+                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                            <div class="text-center">
+                                <a class="btn btn-primary mt-auto"
+                                    href="/shop/tambah_keranjang/<?= $row['id_produk'] ?>">
+                                    <i class="bi bi-cart"></i>
+                                    <span class="d-none d-lg-inline">Tambah ke keranjang</span></a>
+                                <a class="btn btn-outline-success mt-auto"
+                                    href="/shop/detail/<?= $row['id_produk'] ?>">Detail</a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+                <?php endforeach; ?>
+            </div>
             <?php } else { ?>
-                <div class="col mb-5 text-center">
-                    <h2>Tidak ada produk yang tersedia</h2>
-                </div>
+            <div class="col mb-5 text-center">
+                <h2>Tidak ada produk yang tersedia</h2>
+            </div>
             <?php } ?>
         </div>
     </section>
