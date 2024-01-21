@@ -26,6 +26,12 @@ class ProdukModel extends Model
         }
     }
 
+    public function getCountProduk()
+    {
+        return $this->db->table('produk')
+            ->countAllResults();
+    }
+
     public function insertProduk($data)
     {
         return $this->db->table($this->table)->insert($data);

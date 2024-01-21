@@ -73,6 +73,44 @@ class TransaksiModel extends Model
         }
     }
 
+    public function getCountTransaksiSelesai()
+    {
+        return $this->db->table('transaksi')
+            ->where('status', 'Selesai')
+            ->countAllResults();
+    }
+
+    public function getSumTransaksiSelesai()
+    {
+        return $this->db->table('transaksi')
+            ->where('status', 'Selesai')
+            ->selectSum('total_bayar')
+            ->get()
+            ->getRowArray();
+    }
+
+    public function getGrafikTransaksi()
+    {
+        return $this->db->table('transaksi')
+            ->select('MONTH(created_at) as bulan, COUNT(id_transaksi) as jumlah')
+            ->where('status', 'Selesai')
+            ->groupBy('MONTHNAME(created_at)')
+            ->orderBy('MONTHNAME(created_at)', 'ASC')
+            ->get()
+            ->getResultArray();
+    }
+
+    public function getGrafikPendapatan()
+    {
+        return $this->db->table('transaksi')
+            ->select('MONTH(created_at) as bulan, SUM(total_bayar) as total')
+            ->where('status', 'Selesai')
+            ->groupBy('MONTHNAME(created_at)')
+            ->orderBy('MONTHNAME(created_at)', 'ASC')
+            ->get()
+            ->getResultArray();
+    }
+
     public function insertTransaksi($data)
     {
         return $this->db->table($this->table)->insert($data);
