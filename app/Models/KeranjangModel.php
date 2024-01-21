@@ -57,4 +57,9 @@ class KeranjangModel extends Model
     {
         return $this->db->table($this->table)->delete(['id_cart' => $id]);
     }
+
+    public function deleteKeranjangUser($id)
+    {
+        return $this->db->table($this->table)->delete(['id_user' => $id]);
+    }
 }

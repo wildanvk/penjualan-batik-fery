@@ -30,21 +30,21 @@
                         <div class="card-body">
                             <?php
                             if (!empty(session()->getFlashdata('success'))) { ?>
-                                <div class="alert alert-success">
-                                    <?php echo session()->getFlashdata('success'); ?>
-                                </div>
+                            <div class="alert alert-success">
+                                <?php echo session()->getFlashdata('success'); ?>
+                            </div>
                             <?php } ?>
 
                             <?php if (!empty(session()->getFlashdata('info'))) { ?>
-                                <div class="alert alert-info">
-                                    <?php echo session()->getFlashdata('info'); ?>
-                                </div>
+                            <div class="alert alert-info">
+                                <?php echo session()->getFlashdata('info'); ?>
+                            </div>
                             <?php } ?>
 
                             <?php if (!empty(session()->getFlashdata('warning'))) { ?>
-                                <div class="alert alert-warning">
-                                    <?php echo session()->getFlashdata('warning'); ?>
-                                </div>
+                            <div class="alert alert-warning">
+                                <?php echo session()->getFlashdata('warning'); ?>
+                            </div>
                             <?php } ?>
                             <div class="">
                                 <table class="table table-bordered table-hovered" id="tabelData">
@@ -61,28 +61,34 @@
                                     </thead>
                                     <tbody>
                                         <?php foreach ($produk as $key => $row) { ?>
-                                            <tr>
-                                                <td class="text-center"><?php echo $key + 1 ?></td>
-                                                <td class="text-center"><img src="<?php echo base_url('uploads/' . $row['gambar_produk']) ?>" width="50" height="50" alt=""></td>
-                                                <td><?php echo $row['nama_produk']; ?></td>
-                                                <td><?php echo $row['nama_kategori']; ?></td>
-                                                <td><?php echo "Rp " . number_format($row['harga_produk'], 0, ',', '.'); ?>
-                                                </td>
-                                                <td><?php echo $row['status']; ?></td>
-                                                <td class="text-center">
-                                                    <div class="btn-group">
-                                                        <a href="<?php echo base_url('/admin/produk/show/' . $row['id_produk']); ?>" class="btn btn-sm btn-info">
-                                                            <i class="fa fa-eye"></i>
-                                                        </a>
-                                                        <a href="<?php echo base_url('/admin/produk/edit/' . $row['id_produk']); ?>" class="btn btn-sm btn-success">
-                                                            <i class="fa fa-edit"></i>
-                                                        </a>
-                                                        <a href="<?php echo base_url('/admin/produk/delete/' . $row['id_produk']); ?>" class="btn btn-sm btn-danger" onclick="return confirm('Apakah Anda yakin ingin menghapus product ini?');">
-                                                            <i class="fa fa-trash-alt"></i>
-                                                        </a>
-                                                    </div>
-                                                </td>
-                                            </tr>
+                                        <tr>
+                                            <td class="text-center"><?php echo $key + 1 ?></td>
+                                            <td class="text-center"><img
+                                                    src="<?php echo base_url('uploads/' . $row['gambar_produk']) ?>"
+                                                    width="50" height="50" alt=""></td>
+                                            <td><?php echo $row['nama_produk']; ?></td>
+                                            <td><?php echo $row['nama_kategori']; ?></td>
+                                            <td><?php echo "Rp " . number_format($row['harga_produk'], 0, ',', '.'); ?>
+                                            </td>
+                                            <td><?php echo $row['status']; ?></td>
+                                            <td class="text-center">
+                                                <div class="btn-group">
+                                                    <a href="<?php echo base_url('/admin/produk/show/' . $row['id_produk']); ?>"
+                                                        class="btn btn-sm btn-primary">
+                                                        <i class="fa fa-eye"></i>
+                                                    </a>
+                                                    <a href="<?php echo base_url('/admin/produk/edit/' . $row['id_produk']); ?>"
+                                                        class="btn btn-sm btn-success">
+                                                        <i class="fa fa-edit"></i>
+                                                    </a>
+                                                    <a href="<?php echo base_url('/admin/produk/delete/' . $row['id_produk']); ?>"
+                                                        class="btn btn-sm btn-danger"
+                                                        onclick="return confirm('Apakah Anda yakin ingin menghapus product ini?');">
+                                                        <i class="fa fa-trash-alt"></i>
+                                                    </a>
+                                                </div>
+                                            </td>
+                                        </tr>
                                         <?php } ?>
                                     </tbody>
                                 </table>

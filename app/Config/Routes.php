@@ -39,7 +39,8 @@ $routes->group('shop', function ($routes) {
     $routes->get('tambah_keranjang/(:segment)', 'Shop::addToCart/$1');
     $routes->post('update_keranjang', 'Shop::updateCart/$1');
     $routes->get('hapus_keranjang/(:segment)', 'Shop::deleteCart/$1');
-    $routes->get('checkout', 'Shop::checkout');
+    $routes->post('checkout', 'Shop::checkout');
+    $routes->get('riwayat_transaksi', 'Shop::riwayatTransaksi');
 });
 
 $routes->group('user', function ($routes) {
@@ -79,6 +80,13 @@ $routes->group('admin', function ($routes) {
     $routes->get('produk/edit/(:segment)', 'Produk::edit/$1');
     $routes->post('produk/update', 'Produk::update/$1');
     $routes->get('produk/delete/(:segment)', 'Produk::delete/$1');
+
+    $routes->get('transaksi', 'Transaksi::index');
+    $routes->get('transaksi/show/(:segment)', 'Transaksi::show/$1');
+    $routes->post('transaksi/update', 'Transaksi::update/$1');
+
+    $routes->get('laporan', 'Laporan::index');
+    $routes->post('laporan/cetak', 'Laporan::cetak');
 });
 
 

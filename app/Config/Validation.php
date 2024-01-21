@@ -151,4 +151,14 @@ class Validation extends BaseConfig
             'required' => 'Deskripsi produk wajib diisi.'
         ],
     ];
+
+    public $checkout = [
+        'alamat' => 'required'
+    ];
+
+    public $checkout_errors = [
+        'alamat' => [
+            'required' => 'Alamat wajib diisi!'
+        ]
+    ];
 }

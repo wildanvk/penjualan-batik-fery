@@ -108,7 +108,7 @@
                             <div class="modal fade" id="checkoutModal" tabindex="-1" aria-labelledby="checkoutModal" aria-hidden="true">
                                 <div class="modal-dialog modal-dialog-centered modal-lg">
                                     <div class="modal-content">
-                                        <form action="">
+                                        <form action="/shop/checkout" method="post">
                                             <div class="modal-header">
                                                 <h1 class="modal-title fs-5" id="checkoutModal">Checkout Keranjang</h1>
                                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -147,7 +147,6 @@
                                                         </div>
                                                     </div>
                                                     <div class="col-xl-6 col-12">
-
                                                         <div class="mb-3">
                                                             <label for="nama" class="form-label">Nama</label>
                                                             <input type="text" class="form-control" id="nama" placeholder="Masukkan nama Anda" value="<?= $user['nama'] ?>" disabled>
@@ -162,7 +161,7 @@
                                                         </div>
                                                         <div class="mb-3">
                                                             <label for="telepon" class="form-label">Alamat
-                                                                tujuan</label>
+                                                                pengiriman</label>
                                                             <textarea class="form-control" placeholder="Masukkan Alamat tujuan" name="alamat" id="alamat" cols="30" rows="5"></textarea>
                                                         </div>
 
@@ -209,8 +208,27 @@
                     $('#jumlah-produk-' + id).val(jumlah - 1);
                 }
             });
-
         });
+
+        <?php if (session()->getFlashdata('gagal')) { ?>
+            Swal.fire({
+                icon: 'error',
+                title: 'Gagal',
+                text: '<?= session()->getFlashdata('gagal') ?>',
+                showConfirmButton: true,
+                timer: 3000
+            })
+        <?php  } ?>
+
+        <?php if (session()->getFlashdata('checkout')) { ?>
+            Swal.fire({
+                icon: 'success',
+                title: 'Checkout berhasil',
+                text: '<?= session()->getFlashdata('checkout') ?>',
+                showConfirmButton: true,
+                timer: 3000
+            })
+        <?php  } ?>
     </script>
     <?= $this->endSection() ?>
     <?= $this->endSection() ?>
